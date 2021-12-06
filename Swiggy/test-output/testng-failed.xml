@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Swiggy Regression]" guice-stage="DEVELOPMENT">
+  <listeners>
+    <listener class-name="utils.TestListener"/>
+    <listener class-name="utils.MyAnnotationTransfer"/>
+  </listeners>
+  <test thread-count="5" name="Swiggy Regression(failed)">
+    <classes>
+      <class name="runner.MainPageLocationSearchRunner">
+        <methods>
+          <include name="setUpClass"/>
+          <include name="runScenario" invocation-numbers="10 10 10 10"/>
+          <include name="tearDownClass"/>
+        </methods>
+      </class> <!-- runner.MainPageLocationSearchRunner -->
+    </classes>
+  </test> <!-- Swiggy Regression(failed) -->
+</suite> <!-- Failed suite [Swiggy Regression] -->

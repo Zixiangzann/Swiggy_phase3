@@ -63,8 +63,10 @@ public class LocationSearchStepsDefinitions extends DriverFactory {
 	@Given("User click on FIND FOOD button without searching or clicking on any suggested location")
 	public void user_click_on_find_food_button_without_searching_or_clicking_on_any_suggested_location()
 			throws IOException, InterruptedException {
+			Thread.sleep(5000);
 			mainPage.searchMessage("clear me");
 			mainPage.clearBtnClick();
+			mainPage.findFoodBtnClick();
 			String searchBarValue = mainPage.getSearchBarValue();
 			Assert.assertEquals(searchBarValue, "");
 			mainPage.findFoodBtnClick();

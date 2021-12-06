@@ -6,13 +6,12 @@
 		<listener class-name="utils.TestListener"></listener>
 	</listeners>
 
-  <test name="Swiggy Regression">
-  
-  <classes>
-			<class name="runner.MainPageLocationSearchRunner" />
-			<class name="runner.RestaurantsPageRunner"/>
-  </classes>
-  
-  
-  </test> 
+	<test name="Swiggy Regression">
+
+		<classes>
+			<class name="runner.RegressionRunner" />
+		</classes>
+
+
+	</test>
 </suite> 

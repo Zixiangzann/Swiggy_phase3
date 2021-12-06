@@ -25,6 +25,7 @@ public class LocationSearchStepsDefinitions extends DriverFactory {
 	@Then("search bar should have {string}")
 	public void search_bar_should_have(String suggestion) throws IOException, InterruptedException {
 		boolean haveSuggestion = Boolean.parseBoolean(suggestion);
+		Thread.sleep(500);
 		mainPage.assertResults(mainPage.getNumberOfSuggestion() > 0, haveSuggestion);
 	}
 

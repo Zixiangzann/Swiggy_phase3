@@ -47,7 +47,7 @@ public class MainPage extends BasePage {
 	}
 
 	public MainPage clearBtnClick() throws IOException, InterruptedException {
-		waitAndClickElement(clearBtn, 100);
+		waitAndClickElement(clearBtn, 500);
 		return new MainPage();
 	}
 

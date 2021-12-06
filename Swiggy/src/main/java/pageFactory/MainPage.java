@@ -51,7 +51,7 @@ public class MainPage extends BasePage {
 		return new MainPage();
 	}
 
-	public MainPage searchMessage(String location) throws IOException {
+	public MainPage searchMessage(String location) throws IOException, InterruptedException {
 		sendKeys(searchInput, location);
 		return new MainPage();
 	}
@@ -74,7 +74,7 @@ public class MainPage extends BasePage {
 	}
 
 	public MainPage findFoodBtnClick() throws InterruptedException, IOException {
-		waitAndClickElement(findFoodBtn, 100);
+		waitAndClickElement(findFoodBtn, 500);
 		return new MainPage();
 	}
 

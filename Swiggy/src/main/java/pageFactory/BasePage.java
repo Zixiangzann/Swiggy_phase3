@@ -37,8 +37,10 @@ public class BasePage extends DriverFactory{
     	
     }
     
-    public void sendKeys(WebElement element,String textToSend) {
-    	this.wait.until(ExpectedConditions.visibilityOf(element)).sendKeys(textToSend);
+    public void sendKeys(WebElement element,String textToSend) throws InterruptedException {
+    	this.wait.until(ExpectedConditions.visibilityOf(element));
+    	Thread.sleep(1000);
+    	element.sendKeys(textToSend);
     }
     
     public int getElementSize(List <WebElement> elements, int delay) throws InterruptedException {

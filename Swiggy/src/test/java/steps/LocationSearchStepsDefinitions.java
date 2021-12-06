@@ -42,7 +42,7 @@ public class LocationSearchStepsDefinitions extends DriverFactory {
 	}
 
 	@Given("User enter {string} in the searchbar")
-	public void user_enter_in_the_searchbar(String string) throws IOException {
+	public void user_enter_in_the_searchbar(String string) throws IOException, InterruptedException {
 		mainPage.searchMessage("New Delhi");
 
 	}

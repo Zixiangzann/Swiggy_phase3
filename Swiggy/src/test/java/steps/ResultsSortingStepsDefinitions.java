@@ -22,8 +22,10 @@ public class ResultsSortingStepsDefinitions extends DriverFactory{
 	}
 
 	@Given("have directed to restaurants page")
-	public void have_directed_to_restaurants_page() {
+	public void have_directed_to_restaurants_page() throws InterruptedException {
 		String actualUrl = mainPage.getCurrentUrl();
+		//add some delay , wait for page to navigate
+		Thread.sleep(5000);
 		Assert.assertEquals(actualUrl, "https://www.swiggy.com/restaurants");
 	}
 

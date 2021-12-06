@@ -33,6 +33,7 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/x
     <groupId>org.testng</groupId>
     <artifactId>testng</artifactId>
     <version>7.4.0</version>
+    <scope>compile</scope>
 </dependency>
 
 <dependency>
@@ -86,7 +87,7 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/x
         <version>3.0.0-M5</version>
         <configuration>
           <parallel>classes</parallel>
-          <threadCount>3</threadCount>
+          <threadCount>2</threadCount>
           <suiteXmlFiles>
             <suiteXmlFile>testng.xml</suiteXmlFile>
           </suiteXmlFiles>

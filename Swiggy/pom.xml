@@ -86,11 +86,11 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/x
         <artifactId>maven-surefire-plugin</artifactId>
         <version>3.0.0-M5</version>
         <configuration>
-          <parallel>classes</parallel>
-          <threadCount>3</threadCount>
-          <suiteXmlFiles>
-            <suiteXmlFile>testng.xml</suiteXmlFile>
-          </suiteXmlFiles>
+          <forkCount>2</forkCount>
+          <reuseForks>false</reuseForks>
+          <includes>
+          <include>**/*Runner.class</include>
+          </includes>
         </configuration>
       </plugin>
       <plugin>

@@ -3,17 +3,23 @@
 <suite name="Failed suite [Swiggy Regression]" guice-stage="DEVELOPMENT">
   <listeners>
     <listener class-name="utils.TestListener"/>
-    <listener class-name="utils.MyAnnotationTransfer"/>
   </listeners>
   <test thread-count="5" name="Swiggy Regression(failed)">
     <classes>
       <class name="runner.MainPageLocationSearchRunner">
         <methods>
           <include name="setUpClass"/>
-          <include name="runScenario" invocation-numbers="10 10 10 10"/>
+          <include name="runScenario" invocation-numbers="0 1 2 3 4 5 6 7 8 9 10"/>
           <include name="tearDownClass"/>
         </methods>
       </class> <!-- runner.MainPageLocationSearchRunner -->
+      <class name="runner.RestaurantsPageRunner">
+        <methods>
+          <include name="setUpClass"/>
+          <include name="runScenario" invocation-numbers="0"/>
+          <include name="tearDownClass"/>
+        </methods>
+      </class> <!-- runner.RestaurantsPageRunner -->
     </classes>
   </test> <!-- Swiggy Regression(failed) -->
 </suite> <!-- Failed suite [Swiggy Regression] -->

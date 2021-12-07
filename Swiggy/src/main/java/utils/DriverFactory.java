@@ -1,5 +1,6 @@
 package utils;
 
+import java.net.URL;
 import java.time.Duration;
 
 import org.openqa.selenium.WebDriver;
@@ -10,6 +11,7 @@ import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.firefox.FirefoxProfile;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.PageFactory;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
@@ -31,32 +33,58 @@ public class DriverFactory {
 			ReadProperties config = new ReadProperties();
 			config.loadProperties("config.properties");
 			String browser = config.get("browser");
+			String localOrGrid = config.get("localorgrid");
+			String gridURL = config.get("gridurl");
 
 			switch (browser) {
 
 			case "firefox": {
 				WebDriverManager.firefoxdriver().setup();
 				FirefoxOptions options = new FirefoxOptions();
-				FirefoxProfile profile = new FirefoxProfile();
-				options.setProfile(profile);
-				// driver.set(new FirefoxDriver(options));
-				driver.set(new FirefoxDriver(options));
+				
+				if(localOrGrid.equalsIgnoreCase("local")) {
+					driver.set(new FirefoxDriver(options));				
+				}else if(localOrGrid.equalsIgnoreCase("grid")) {
+					//run on grid
+					driver.set(new RemoteWebDriver(new URL(gridURL),options));
+				}else {
+					System.out.println("please indicate local or grid in the config file");
+				}
+				
+				
 			}
 				break;
 
 			case "chrome": {
 				WebDriverManager.chromedriver().setup();
 				ChromeOptions options = new ChromeOptions();
-				// driver.set(new ChromeDriver(options));
-				driver.set(new ChromeDriver(options));
+				
+				if(localOrGrid.equalsIgnoreCase("local")) {
+					driver.set(new ChromeDriver(options));					
+				}else if(localOrGrid.equalsIgnoreCase("grid")) {
+					//run on grid
+					driver.set(new RemoteWebDriver(new URL(gridURL),options));
+				}else {
+					System.out.println("please indicate local or grid in the config file");
+				}
+				
+				
 			}
 				break;
 			case "edge": {
 				WebDriverManager.edgedriver().setup();
 				EdgeOptions options = new EdgeOptions();
-				// driver.set(new EdgeDriver(options));
-				driver.set(new EdgeDriver(options));
-			}
+
+				if(localOrGrid.equalsIgnoreCase("local")) {
+					driver.set(new EdgeDriver(options));					
+				}else if(localOrGrid.equalsIgnoreCase("grid")) {
+					//run on grid
+					driver.set(new RemoteWebDriver(new URL(gridURL),options));
+				}else {
+					System.out.println("please indicate local or grid in the config file");
+				}				
+				
+			}//TO DO - to add Safari browser if required
 				break;
 			}
 		} catch (Exception e) {
